@@ -1,0 +1,26 @@
+server:
+  port: 9100
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api_route
+          uri: http://localhost:9101
+          predicates:
+            - Path=/api/**
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+dubbo:
+  application:
+    name: dubbo-api-gateway-consumer
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    id: nacos-registry
+    address: nacos://localhost:8848

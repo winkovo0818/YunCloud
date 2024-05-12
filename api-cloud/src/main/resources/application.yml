@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: API-Server
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/api?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: admin1020
+  # session 失效时间
+  session:
+    timeout: 86400
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    port: 6379
+    host: 127.0.0.1
+    timeout: 10000
+    database: 0
+
+server:
+  port: 9157
+  servlet:
+    context-path: /api
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+  global-config:
+    db-config:
+      logic-delete-field: isDelete # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+dubbo:
+  application:
+    # 服务名称
+    name: dubbo-api-gateway-provider
+    # 服务协议
+  protocol:
+    name: dubbo
+    # 服务端口
+    port: -1
+    # 服务注册中心
+  registry:
+    id: nacos-registry
+    # 服务注册中心的地址
+    address: nacos://localhost:8848

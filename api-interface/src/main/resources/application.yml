@@ -1,0 +1,14 @@
+server:
+  port: 9101
+  servlet:
+    context-path: /api
+logging:
+  level:
+    root: INFO
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+#spring:
+#  autoconfigure:
+#    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
