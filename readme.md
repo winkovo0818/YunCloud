@@ -6,7 +6,7 @@ API开放平台，管理员可以接入并发布接口，可视化结构使用�
 ### 作者信息
 作者: 云淡风轻<br>
 邮箱: 1026771081@qq.com<br>
-博客: https://blog.winkovo.top/
+博客: http://blog.winkovo.top/
 
 ### 目录结构<br>
 api-client: 客户端<br>
